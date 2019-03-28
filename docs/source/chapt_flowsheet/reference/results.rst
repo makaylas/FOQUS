@@ -10,7 +10,6 @@ are displayed in a table, and the contents can be copied and pasted into
 a spreadsheet or exported to a CSV file. Figure :ref:`fig.results.table` 
 show the Flowsheet Results Table window.
 
-.. _fig.results.table
 .. figure:: ../figs/resultsTable.svg
    :alt: Flowsheet Results Table Window
    :name: fig.results.table
@@ -44,6 +43,7 @@ errors are typically caused by a simulation that fails to converge or
 has some other calculation error (e.g., ACM does not converge or an
 Excel spreadsheet simulation with a division by 0 error).
 
+.. _table.fs.error:
 .. table:: Flowsheet Error Codes
 
    +------+-----------------------------------------------------------+
@@ -53,15 +53,17 @@ Excel spreadsheet simulation with a division by 0 error).
    +------+-----------------------------------------------------------+
    | 0    | Success                                                   |
    +------+-----------------------------------------------------------+
-   | 1    | A node calculation failed                                 |
+   | 1    | A simulation/node failed to solve                         |
+   +------+-----------------------------------------------------------+
+   | 2    | A simulation/node failed to solve while solving tears     |
    +------+-----------------------------------------------------------+
    | 3    | Failed to create a worker node                            |
    +------+-----------------------------------------------------------+
    | 5    | Unknown tear solver                                       |
    +------+-----------------------------------------------------------+
-   | 11   | Wegstein failed to converge                               |
+   | 11   | Wegstein failed, reached iteration limit                  |
    +------+-----------------------------------------------------------+
-   | 12   | Direct failed to converge                                 |
+   | 12   | Direct failed, reached iteration limit                    |
    +------+-----------------------------------------------------------+
    | 16   | Presolve node error                                       |
    +------+-----------------------------------------------------------+
@@ -82,6 +84,7 @@ Excel spreadsheet simulation with a division by 0 error).
    | 201  | Cycle in determining calculation order (invalid tear set) |
    +------+-----------------------------------------------------------+
 
+.. _table.node.error:
 .. table:: Node Error Codes
 
    +------+---------------------------------------+
